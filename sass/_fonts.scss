@@ -1,0 +1,108 @@
+/* ==========================================================================
+   New classes
+   ========================================================================== */
+
+@mixin no-margin-for-titles() {
+	$list: '';
+	$i: 1;
+	$list: "h#{$i}.no-margin, .h#{$i}.no-margin";
+	@for $i from (1 + 1) through 6 {
+		$list: "#{$list}, h#{$i}.no-margin, .h#{$i}.no-margin";
+	}
+	#{$list} {
+		margin: 0px;
+	}
+}
+
+
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
+
+.italic {
+	font-style: italic;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.downcase {
+	text-transform: lowercase;
+}
+
+
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+@include no-margin-for-titles();
+
+
+/* H1 (titre sur photo)
+--------------------------------------------------- */
+h1 {
+	font-size : 120px;
+	line-height: 120px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/* titre de page interieure
+--------------------------------------------------- */
+h2 {
+	font-size : 72px;
+	line-height: 72px;
+	padding-bottom: 20px;
+	margin: 0;
+}
+
+/* titre homepage
+--------------------------------------------------- */
+h3 {
+	/* font-family: 'gotham black'; */
+	font-size : 55px;
+}
+
+/* sous-titres
+--------------------------------------------------- */
+h4 {
+	font-size : 30px;
+	line-height: 36px;
+	letter-spacing: 1px;
+}
+
+/* chiffre
+--------------------------------------------------- */
+.chiffre {
+	font-size : 95px;
+	line-height: 95px;
+	letter-spacing: -1px;
+}
+
+/* titre sur photo
+--------------------------------------------------- */
+.font-x-large {
+	font-size : 21px;
+	line-height: 21px;
+}
+
+/* avis clients
+--------------------------------------------------- */
+.font-large {
+	font-size : 18px;
+	line-height: 30px;
+}
+
+
+/* corps de texte + menu
+--------------------------------------------------- */
+html,
+body,
+.font-regular{
+	/* font-family: 'gotham light'; */
+	font-size : 14px;
+	line-height: 24px;
+}
+

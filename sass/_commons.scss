@@ -1,0 +1,271 @@
+
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
+
+* { outline: 0; }
+p { margin: 0; }
+
+.button { 
+  text-align: center; 
+  cursor: pointer; 
+  display: block;
+}
+
+.container-fluid { padding: 0; }
+
+.relative { position: relative; }
+.clickable { cursor: pointer; }
+.no-opacity { opacity: 0; }
+.on-bottom { position: absolute; bottom: 0; }
+.redirect { cursor: pointer; }
+.thin { width: 1px; }
+.centered { text-align: center; }
+.righted { text-align: right; }
+.lefted { text-align: left; }
+.over-hidden { overflow: hidden; }
+.wrappingLink { display: block; }
+
+.no-style, .no-style li { list-style-type: none; padding: 0; margin: 0; }
+
+.no-resize { resize: none; }
+
+
+.goUp {
+  margin-top: -70px;
+}
+
+
+
+.wid30{ width: 30%; }
+.wid50{ width: 50%; }
+.wid60{ width: 60%; }
+.wid70{ width: 70%; }
+.wid80{ width: 80%; }
+.wid90{ width: 90%; }
+
+.rotate-45 { @include rotate(45deg); }
+.rotate-135 { @include rotate(135deg); }
+
+.bordered-block { 
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.unbreakable {
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+}
+
+.table-simulation {
+  display: table;
+  text-align: center;
+}
+
+.cell-simulation {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.list {
+  &, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+
+}
+
+.vertical-centered {
+  @extend %vertical-align;
+}
+
+/* padding and margins */
+.no-padding { padding: 0; }
+.margins { padding: 0px 25px; }
+.hMargins { padding: 25px 0px; }
+.margins.hMargins { padding: 25px; }
+.topMargin { margin-top: 30px; }
+.padding-2x {
+  padding: 57px 71px;
+}
+
+.externalMargins {
+  padding: 60px 35px 120px 35px;
+}
+.externalMarginsH {
+  padding: 60px 0px 120px 0px;
+}
+
+.externalMarginsW {
+  padding: 0px 35px 0px 35px;
+}
+
+.externalMarginsHAlt {
+  padding: 60px 35px 60px 35px;
+}
+
+.wideMarginsW {
+  margin: 0 80px;
+}
+
+.realMarginsW {
+  margin: 0px 35px 0px 35px;
+}
+
+.internMargins {
+  padding: 35px;
+}
+
+.addBottomMargin {
+  margin-bottom: 120px;
+}
+
+.addSmBottomMargin {
+  margin-bottom: 60px;
+}
+
+
+.extraBottomPadding,
+ul.extraBottomPadding { 
+  padding-bottom: 100px; 
+}
+
+.margin-bottom-18 {
+  margin-bottom: 18px;
+}
+
+.margin-bottom-25 {
+  margin-bottom: 25px;
+}
+
+.margin-bottom-35 {
+  margin-bottom: 35px;
+}
+
+
+/* helper class */
+.cover {
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.transition-500-ease-out {
+  -webkit-transition: width 500ms ease-out;
+  -moz-transition: width 500ms ease-out;
+  -o-transition: width 500ms ease-out;
+  transition: width 500ms ease-out;
+}
+
+@-webkit-keyframes rotating {
+    from{
+      transform:rotate(0deg);
+      -webkit-transform: rotate(0deg);
+    }
+    to{
+      transform:rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from{
+      transform:rotate(0deg);
+      -webkit-transform: rotate(0deg);
+    }
+    to{
+      transform:rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 1.5s linear infinite;
+    animation: rotating 1.5s linear infinite;
+}
+
+.no-break-inside {
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid; /* Firefox */
+    break-inside: avoid-column;
+}
+
+.back-in-center {
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* ==========================================================================
+   columns
+   ========================================================================== */
+
+.columns2 { @include content-columns(1); }
+@media (min-width: 768px) { 
+   .columns2 { @include content-columns(2); }
+}
+
+.columns3 { @include content-columns(1); }
+@media (min-width: 768px) { 
+   .columns3 { @include content-columns(2); }
+}
+@media (min-width: 1200px) { 
+   .columns3 { @include content-columns(3); }
+}
+
+.columns4 { @include content-columns(1); }
+@media (min-width: 768px) { 
+   .columns4 { @include content-columns(2); }
+}
+@media (min-width: 1200px) { 
+   .columns4 { @include content-columns(4); }
+}
+
+.column-xs-width-6 {
+    -webkit-column-width: 50%; /* Chrome, Safari, Opera */
+    -moz-column-width: 50%; /* Firefox */
+    column-width: 50%;
+}
+
+.column-xs-width-3 {
+  -webkit-column-width: 25%; /* Chrome, Safari, Opera */
+  -moz-column-width: 25%; /* Firefox */
+   column-width: 25%;
+}
+
+@media (min-width: 768px) { 
+  .column-md-width-3 {
+    -webkit-column-width: 25%; /* Chrome, Safari, Opera */
+    -moz-column-width: 25%; /* Firefox */
+    column-width: 25%;
+  }
+
+  .column-md-width-6 {
+    -webkit-column-width: 50%; /* Chrome, Safari, Opera */
+    -moz-column-width: 50%; /* Firefox */
+    column-width: 50%;
+  }
+
+}
+
+
+/* ==========================================================================
+   Commons
+   ========================================================================== */
+

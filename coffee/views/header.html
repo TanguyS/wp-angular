@@ -1,0 +1,107 @@
+<div id="super-bar" class="clearfix light"
+ng-class="{ 'dark-background': windowW > 800, 'light-background': windowW <= 800 }"
+>
+	<div class="left pull-left">
+		<div class="clearfix">
+			<div class="pull-left">
+				<img ng-src="{{ imgpath }}/logo-sgdf.png" alt="SGDF" />
+			</div>
+			<div class="pull-left">
+				<a href="/#/"><img ng-src="{{ postdata.logo }}" alt="Branche" /></a>
+			</div>
+		</div>
+	</div>
+	<div ng-class="{ 'pull-right': windowW > 800, 'pull-left': windowW <= 800 }">
+		<div class="pull-left right switcher relative dark-background">
+			<div class="switcher-container" 
+			ng-mouseenter="hover = true" 
+			ng-mouseleave="hover = false" 
+			ng-class="{ 'selected': hover }"
+			>
+				<a href="{{ home.link }}/#/home" class="clearfix switcher-button dark-background light" ng-repeat="home in postdata.home">
+					<div class="pull-left">
+						<img ng-src="{{ home.picto }}" alt="{{ home.title }}" class="picto" />
+					</div>
+					<div class="pull-left">
+				  		<p class="title uppercase title-type"><strong>Je suis {{ home.title }}</strong></p>
+				  	</div>
+				</a>
+				<span class="caret switcher-caret" ng-if="postdata.home.length > 1"></span>
+			</div>
+		</div>
+	</div>
+
+		<div class="pull-right mobile-menu" ng-hide="windowW > 800">
+			<button type="button" class="hamburger" ng-click="toggleActiveMobile()"	hamburger-button ng-class="{ 'active': menuMobileActive, 'inactive': !menuMobileActive }">
+                <span class="icon-bar dark-background"></span>
+                <span class="icon-bar dark-background"></span>
+                <span class="icon-bar dark-background"></span>
+            </button>
+		</div>
+</div>
+<ul id="menumobile" class="no-style" ng-hide="windowW > 800" ng-class="{ 'showed': menuMobileActive }">
+	<li class="item-wrapper" ng-repeat="item in postdata.menu" ng-mouseenter="item.active = true" ng-mouseleave="item.active = false">
+		<a href="{{ item.ng_url }}" class="item">
+			<img class="item-image" ng-src="{{ item.image }}" alt="{{ item.title }}" ng-if="item.image != false" />
+			<strong class="title-type item-title" >{{ item.title }}</strong>
+			<span class="caret" ng-if="item.submenu != undefined"></span>
+		</a>
+		<ul ng-if="item.submenu != undefined" class="sub-menu dark-background light no-style" ng-class="{'inactive': !item.active }">
+			<li ng-repeat="subitem in item.submenu"
+			ng-mouseenter="hover = true" 
+			ng-mouseleave="hover = false" 
+			ng-class="{ 'dark light-background': hover }"
+			>
+				<a href="{{ subitem.ng_url }}" class="item">{{ subitem.title }}</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+<div id="nav-bar" class="clearfix" ng-hide="windowW <= 800">
+	<div class="pull-left" ng-class="{ hide: isSearch }">
+		<ul id="menu" class="no-style">
+			<li ng-repeat="item in postdata.menu">
+				<a href="{{ item.ng_url }}" class="dark">
+					<img class="title-type" ng-src="{{ item.image }}" alt="{{ item.title }}" ng-if="item.image != false" />
+					<strong>{{ item.title }}</strong>
+					<span class="caret" ng-if="item.submenu != undefined"></span>
+				</a>
+				<ul ng-if="item.submenu != undefined" class="dark-background light">
+					<li ng-repeat="subitem in item.submenu"
+					ng-mouseenter="hover = true" 
+					ng-mouseleave="hover = false" 
+					ng-class="{ 'dark light-background': hover }"
+					>
+						<a href="{{ subitem.ng_url }}">{{ subitem.title }}</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="pull-right right-items">
+		<div class="clearfix">
+			<div class="pull-left search" ng-class="{ 'active': isSearch }">
+				<div class="clearfix">
+					<div class="link pull-left">
+						<a href="/#/search"><img ng-src="{{ imgpath }}/loupe.png" alt="rechercher" /></a>
+					</div>
+					<div class="input pull-left" ng-class="{ hide: !isSearch }">
+						<input type="text" name="search" class="search-input" placeholder="rechercher" value="{{ searchQuery }}" />
+					</div>
+				</div>
+			</div>
+			<div class="pull-right close" ng-class="{ hide: !isSearch }">
+				<a href="/#/home"><img ng-src="{{ imgpath }}/cross-blue.png" alt="fermer" /></a>
+			</div>
+			<div class="pull-left rss" ng-class="{ hide: isSearch }">
+				<a href="{{ postdata.rss }}" target="_blank"><img ng-src="{{ imgpath }}/rss.png" alt="rss" /></a>
+			</div>
+			<div class="pull-left facebook" ng-if="postdata.facebook != undefined" ng-class="{ hide: isSearch }">
+				<a href="{{ postdata.facebook }}" target="_blank" class="fa fa-facebook fa-2x dark"></a>
+			</div>
+			<div class="pull-left twitter" ng-if="postdata.twitter != undefined" ng-class="{ hide: isSearch }">
+				<a href="{{ postdata.twitter }}" target="_blank" class="fa fa-twitter fa-2x dark"></a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,126 @@
+@mixin transition($transition-property, $transition-time, $method, $delay) {
+    -webkit-transition: $transition-property $transition-time $method $delay;
+    -moz-transition: $transition-property $transition-time $method $delay;
+    -ms-transition: $transition-property $transition-time $method $delay;
+    -o-transition: $transition-property $transition-time $method $delay;
+    transition: $transition-property $transition-time $method $delay;
+}
+
+@mixin transition_double($transition-property, $transition-time, $method, $delay, $transition-property2, $transition-time2, $method2, $delay2) {
+    -webkit-transition: $transition-property $transition-time $method $delay, $transition-property2 $transition-time2 $method2 $delay2;
+    -moz-transition: $transition-property $transition-time $method $delay, $transition-property2 $transition-time2 $method2 $delay2;
+    -ms-transition: $transition-property $transition-time $method $delay, $transition-property2 $transition-time2 $method2 $delay2;
+    -o-transition: $transition-property $transition-time $method $delay, $transition-property2 $transition-time2 $method2 $delay2;
+    transition: $transition-property $transition-time $method $delay, $transition-property2 $transition-time2 $method2 $delay2;
+}
+
+@mixin blur($size) {
+  -webkit-filter: blur($size);
+  -moz-filter: blur($size);
+  -o-filter: blur($size);
+  -ms-filter: blur($size);
+  filter: blur($size);
+}
+
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+%vertical-align {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+@mixin animation-name($name) {
+  -o-animation-name: $name;
+  -moz-animation-name: $name;
+  -webkit-animation-name: $name;
+  animation-name: $name;
+}
+@mixin animation-duration($duration) {
+  -o-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -webkit-animation-duration: $duration;
+  animation-duration: $duration;
+}
+@mixin animation-delay($delay) {
+  -o-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  animation-delay: $delay;
+}
+@mixin animation-timing-function($timing) {
+  -o-animation-timing-function: $timing;
+  -moz-animation-timing-function: $timing;
+  -webkit-animation-timing-function: $timing;
+  animation-timing-function: $timing;
+}
+@mixin animation-iteration-count($count) {
+  -o-animation-iteration-count: $count;
+  -moz-animation-iteration-count: $count;
+  -webkit-animation-iteration-count: $count;
+  animation-iteration-count: $count;
+}
+@mixin animation-direction($direction) {
+  -o-animation-direction: $direction;
+  -moz-animation-direction: $direction;
+  -webkit-animation-direction: $direction;
+  animation-direction: $direction;
+}
+@mixin animation-fill-mode($fill) {
+  -o-animation-fill-mode: $fill;
+  -moz-animation-fill-mode: $fill;
+  -webkit-animation-fill-mode: $fill;
+  animation-fill-mode: $fill;
+}
+@mixin animation-play-state($state) {
+  -o-animation-play-state: $state;
+  -moz-animation-play-state: $state;
+  -webkit-animation-play-state: $state;
+  animation-play-state: $state;
+}
+@mixin animation($animation) {
+  -o-animation: $animation;
+  -moz-animation: $animation;
+  -webkit-animation: $animation;
+  animation: $animation;
+}
+
+@mixin mask($value) {
+  -webkit-mask: $value;
+  -ms-mask: $value;
+  -moz-mask: $value;
+  -o-mask: $value;
+  mask: $value;
+}
+@mixin mask-size($value){
+  -webkit-mask-size: $value;
+  -ms-mask-size: $value;
+  -moz-mask-size: $value;
+  -o-mask-size: $value;
+  mask-size: $value;
+}
+@mixin mask-position($value){
+  -webkit-mask-position: $value;
+  -ms-mask-position: $value;
+  -moz-mask-position: $value;
+  -o-mask-position: $value;
+  mask-position: $value;
+}
