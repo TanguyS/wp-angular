@@ -1,5 +1,5 @@
 <?php
-class JSON_API_Sgdf_Controller {
+class JSON_API_Wpng_Controller {
 	private $path;
 
 	public function __construct() {
