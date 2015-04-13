@@ -1,4 +1,4 @@
-sgdf.config ($stateProvider, $urlRouterProvider) ->
+wpng.config ($stateProvider, $urlRouterProvider) ->
 
   #
   # home url
